@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<%- include('partials/head',{
+    title: 'Movie add'
+}) %>
+
+<body>
+    <figure>
+        <img src="/img/logo-DH.png" alt="Logo Digital House">
+      </figure>
+    <h1 class="titulo">Agregar Película</h1>
+    <br>
+    <section class="formulario">
+        <form action="/movies/create" method="POST">
+            <label for="title" class="form-label">Title </label>
+            <p>
+                <input type="text" name="title" id="" value="<%= locals.errors && (old.title && old.title) %>" >
+                <small class="text-danger ms-2">
+                    <%= locals.errors && (errors.title && errors.title.msg) %>
+                </small>
+            </p>
+            <label for="rating" class="form-label">Rating </label>
+            <p>
+                <input type="number" name="rating" id="" value="<%= locals.errors && (old.rating && old.rating) %>">
+                <small class="text-danger ms-2">
+                    <%= locals.errors && (errors.rating && errors.rating.msg) %>
+                </small> 
+            </p>
+            <label for="awards" class="form-label">Awards </label>
+            <p>
+                <input type="number" name="awards" id="" value="<%= locals.errors && (old.awards && old.awards) %>">
+                <small class="text-danger ms-2">
+                    <%= locals.errors && (errors.awards && errors.awards.msg) %>
+                </small>
+            </p>
+            <label for="release_date" class="form-label">Release date </label>
+            <p>
+                <input type="date" name="release_date" id="" value="<%= locals.errors && (old.release_date && old.release_date) %>">
+                <small class="text-danger ms-2">
+                    <%= locals.errors && (errors.release_date&& errors.release_date.msg) %>
+                </small>
+            </p>
+            <label for="length" class="form-label">Length </label>
+            <p>
+                <input type="number" name="length" id="" value="<%= locals.errors && (old.length && old.length) %>">
+                <small class="text-danger ms-2">
+                    <%= locals.errors && (errors.length && errors.length.msg) %>
+                </small>
+            </p>
+
+            <br>
+            <p> <button class="botonAgregar" type="submit">Agregar</button>
+            
+            <a  class="botonVolver" href="/movies">Listado de Películas</a></p>
+        </form>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+
+</html>
